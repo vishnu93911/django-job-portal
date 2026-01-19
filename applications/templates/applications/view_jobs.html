@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Available Jobs</title>
+    <link rel="stylesheet" href="{% static 'applications/css/jobs.css' %}">
+</head>
+<body>
+
+<h2 class="page-title">Available Jobs</h2>
+
+<div class="jobs-container">
+{% for job in jobs %}
+  <div class="job-card">
+      <h3>{{ job.title }}</h3>
+      <p>{{ job.description }}</p>
+
+      <button class="apply-btn" data-job-id="{{ job.id }}">
+          Apply Now
+      </button>
+  </div>
+{% endfor %}
+</div>
+
+<div id="popup"></div>
+
+<script src="{% static 'applications/js/code.js' %}"></script>
+</body>
+</html>
+

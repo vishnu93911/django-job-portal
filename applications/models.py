@@ -1,0 +1,28 @@
+from django.db import models
+from django.conf import settings
+from jobs.models import Job
+# Create your models here.
+
+User=settings.AUTH_USER_MODEL
+
+class Application(models.Model):
+    job=models.ForeignKey(Job,on_delete=models.CASCADE)
+    applicant=models.ForeignKey(User,on_delete=models.CASCADE)
+    STATUS_CHOICES = (
+        ('applied', 'Applied'),
+        ('shortlisted', 'Shortlisted'),
+        ('rejected', 'Rejected'),
+    )
+    status = models.CharField(
+        max_length=20,
+        choices=STATUS_CHOICES,
+        default='applied'
+    )
+    applied_at=models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.applicant} -> {self.job}"
+
+    class Meta:
+        unique_together = ("job", "applicant")# prevents duplicate applications
+

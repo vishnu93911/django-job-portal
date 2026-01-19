@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Applications</title>
+
+
+  <link rel="stylesheet" href="{% static 'applications/css/applications.css' %}">
+</head>
+
+<body>
+
+  <h2>Job Applications</h2>
+
+  {% if applications %}
+  <div class="applications-container">
+    {% for app in applications %}
+    <div class="application-card">
+      <h3>Job: {{ app.job.title }}</h3>
+
+      <p><strong>Username:</strong> {{ app.applicant.username }}</p>
+
+      <p><strong>Full Name:</strong>
+        {{ app.applicant.first_name }} {{ app.applicant.last_name }}
+      </p>
+
+      <p><strong>Email:</strong> {{ app.applicant.email }}</p>
+
+      <p><strong>Role:</strong> {{ app.applicant.role }}</p>
+      <div class="action-buttons">
+        <button class="btn shortlist-btn" data-id="{{ app.id }}">
+          Shortlist
+        </button>
+
+        <button class="btn reject-btn" data-id="{{ app.id }}">
+          Reject
+        </button>
+      </div>
+
+    </div>
+    {% endfor %}
+  </div>
+
+  {% else %}
+  <p>No applications yet.</p>
+  {% endif %}
+  <script src="{% static 'applications/js/actions.js' %}"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Job Seeker Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f0f2f5;
+        }
+        nav {
+            background: #007bff;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+        nav a:hover { text-decoration: underline; }
+        .content {
+            padding: 30px;
+            text-align: center;
+        }
+        .card {
+            display: inline-block;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            transition: transform 0.2s;
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <span>Welcome, {{ request.user.username }}!</span>
+    <a href="{% url 'logout' %}">Logout</a>
+    
+</nav>
+
+<div class="content">
+    <div class="card">
+        <h2>Job Seeker Dashboard</h2>
+        <p>Here you can view jobs, apply for positions, and manage your profile.</p>
+        <a href="{% url 'view_jobs' %}">View Jobs</a> | <a href="#">Profile</a>
+
+    </div>
+</div>
+
+<script src="{% static 'accounts/animation.js' %}"></script>
+</body>
+</html>
