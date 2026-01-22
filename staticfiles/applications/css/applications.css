@@ -1,0 +1,124 @@
+/* ===== Global ===== */
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: #ffffff;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+/* ===== Container ===== */
+.applications-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* ===== Application Card ===== */
+.application-card {
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(12px);
+    border-radius: 18px;
+    padding: 22px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+    transition: all 0.35s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.application-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,0.2),
+        transparent
+    );
+    transition: 0.6s;
+}
+
+.application-card:hover::before {
+    left: 100%;
+}
+
+.application-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 25px 60px rgba(0,0,0,0.6);
+}
+
+/* ===== Text ===== */
+.application-card h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #00ffd5;
+    font-size: 20px;
+}
+
+.application-card p {
+    margin: 8px 0;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.application-card strong {
+    color: #ffd369;
+}
+
+/* ===== Empty Message ===== */
+p {
+    text-align: center;
+    font-size: 18px;
+}
+/* ===== Action Buttons ===== */
+.action-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 18px;
+    gap: 15px;
+}
+
+.btn {
+    flex: 1;
+    padding: 12px 0;
+    border: none;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Shortlist */
+.shortlist-btn {
+    background: linear-gradient(135deg, #00e676, #00c853);
+    color: #000;
+}
+
+.shortlist-btn:hover {
+    background: linear-gradient(135deg, #1bff8b, #00e676);
+    transform: scale(1.05);
+}
+
+/* Reject */
+.reject-btn {
+    background: linear-gradient(135deg, #ff5252, #ff1744);
+    color: #fff;
+}
+
+.reject-btn:hover {
+    background: linear-gradient(135deg, #ff6f6f, #ff5252);
+    transform: scale(1.05);
+}
