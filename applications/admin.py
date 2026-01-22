@@ -4,3 +4,9 @@ from .models import Application
 
 
 admin.site.register(Application)
+
+
+
+
+
+
